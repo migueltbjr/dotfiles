@@ -11,6 +11,9 @@
 [diff]
   tool = nvimdiff
 
+[init]
+  defaultBranch = master
+
 [difftool "nvimdiff"]
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
@@ -27,3 +30,4 @@
 
 [include]
   path = ~/.config/git/config.local
+

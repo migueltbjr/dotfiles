@@ -5,6 +5,19 @@
 # shellcheck disable=SC1091
 . "${XDG_CONFIG_HOME:-"${HOME}/.config"}/zsh/.xdg.local"
 
+# Force app to use XDG_CONFIG
+export AZURE_CONFIG_DIR="${XDG_CONFIG_HOME}/azure"
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+export CODEX_HOME="${XDG_CONFIG_HOME}/codex"
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME}/claude"
+export GEMINI_CLI_HOME="${XDG_CONFIG_HOME}/gemini"
+export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME}/jupyter"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+export DAGSTER_HOME="${XDG_CONFIG_HOME}/dagster"
+export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
+export PSQL_HISTORY="${XDG_STATE_HOME}/psql/psql_history"
+
 # Add all local binaries to the system path and make sure they are first.
 export PATH="${HOME}/.local/bin:${HOME}/.local/bin/local:${PATH}"
 
