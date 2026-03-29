@@ -24,6 +24,9 @@ export PATH="${HOME}/.local/bin:${HOME}/.local/bin/local:${PATH}"
 # Confiure Mise (programming language run-time manager).
 export PATH="${XDG_DATA_HOME}/mise/shims:${PATH}"
 
+# config homebrew python
+export PATH="/opt/homebrew/opt/python/libexec/bin/:${PATH}"
+
 # Default programs to run.
 export EDITOR="nvim"
 export DIFFPROG="nvim -d"

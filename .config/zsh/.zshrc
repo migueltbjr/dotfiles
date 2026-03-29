@@ -23,32 +23,6 @@ git_prompt() {
   [ -n "${branch}" ] && echo " (${branch})"
 }
 
-# precmd() {
-#   local git_root rel parent
-
-#   GIT_PROMPT=""
-
-#   if git_root=$(git rev-parse --show-toplevel 2>/dev/null); then
-#     rel=${PWD#$git_root}
-#     rel=${rel#/}
-
-#     if [[ -z $rel ]]; then
-#       LEFT_PATH=${git_root:t}
-#       parent=${git_root:h}
-#       RIGHT_PATH=${(D)parent}
-#     else
-#       LEFT_PATH=$rel
-#       RIGHT_PATH=${(D)git_root}
-#     fi
-
-#     GIT_PROMPT=$(git_prompt)
-#   else
-#     LEFT_PATH=${PWD:t}
-#     parent=${PWD:h}
-#     RIGHT_PATH=${(D)parent}
-#   fi
-# }
-
 precmd() {
   local git_root parent before_repo inside_repo
 
@@ -80,10 +54,8 @@ precmd() {
 
 setopt PROMPT_SUBST
 # shellcheck disable=SC2016
-PROMPT='%B%{$fg[green]%}%n@%M %{$fg[blue]%}${LEFT_PATH}%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%{$reset_color%}%b '
+PROMPT='%B%{$fg[green]%}%n@%m %{$fg[blue]%}${LEFT_PATH}%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%{$reset_color%}%b '
 RPROMPT='%{$fg[blue]%}${RIGHT_PATH}%{$reset_color%}'
-#PROMPT='%B%{$fg[green]%}%n@%{$fg[green]%}%M %{$fg[blue]%}%1~%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
-# RPROMPT='%{$fg[blue]%}%~%{$reset_color%}'
 export PROMPT
 export RPROMPT
 
